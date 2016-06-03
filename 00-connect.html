@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+	<title>Remote Systems</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://it.wvu.edu/research/research-computing" title="Research 
+        Computing">
+      	<img alt="Research Computing banner" src="img/ResearchComputing.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Remote Systems</h1></a>
+          <h2 class="subtitle">Connecting</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Connect to a remote system using <code>ssh</code> command</li>
+</ul>
+</div>
+</section>
+<p>Text about remote systems requires secure username/password setup prior to ssh working.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> spruce.hpc.wvu.edu -l training01</code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="username-variation"><span class="glyphicon glyphicon-pushpin"></span>Username Variation</h2>
+</div>
+<div class="panel-body">
+<p>In this lesson, we have used the username <code>training01</code>…. text on how to know your username (both in training and normally)</p>
+</div>
+</aside>
+<pre class="output"><code>------------------------------------------------------------------------------
+                   Welcome to the Spruce Knob Supercomputer
+            Shared Research Facilities, West Virginia University
+------------------------------------------------------------------------------
+              ** Unauthorized use/access is prohibited. **
+
+The actual or attempted unauthorized access, use, or modification of this
+system is strictly prohibited. Unauthorized users may be subject to
+institutional disciplinary proceedings and/or criminal and civil penalties 
+under
+state, federal, or other applicable domestic and foreign laws. The use of this
+system is monitored and recorded for administrative and security reasons.  
+Anyone
+accessing this system expressly consents to such monitoring and is advised that
+if monitoring reveals possible evidence of criminal activity, the Institution
+may provide the evidence of such activity to law enforcement officials.
+
+In addition, users must ensure data that is protected by Federal
+security or privacy laws (e.g., HIPAA, ITAR, FERPA, classified information, 
+etc.)
+is not stored on this system. This system is not intended to meet the enhanced
+security required by those laws or regulations.
+
+By logging on to this system, you acknowledge your awareness of and acceptance
+of with WVU&#39;s Acceptable Use Policies and you agree not to store any of the
+before mentioned protected data.
+
+WVU Acceptable Use of Data and Technology Resources Policies:
+http://it.wvu.edu/governance/standards-and-procedures/all-standards/au
+------------------------------------------------------------------------------</code></pre>
+<pre class="output"><code>Password:</code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="typed-password-wont-show"><span class="glyphicon glyphicon-pushpin"></span>Typed Password won’t show</h2>
+</div>
+<div class="panel-body">
+<p>Some text about password won’t echo</p>
+</div>
+</aside>
+<pre class="output"><code>______________________________________________________________________________
+
+Questions and Problem Reports:
+-  Email:     helpdesk@hpc.wvu.edu
+-  Help Desk Ticket System:   https://helpdesk.hpc.wvu.edu
+
+Additional information on Spruce Knob:
+-  Documentation:  http://wiki.hpc.wvu.edu
+-  HPC Website:    http://sharedresearchfacilities.wvu.edu/facilities/hpc
+______________________________________________________________________________
+
+Further system related information:
+
+- Spruce Knob utilizes the TORQUE/PBS resource manager to manage compute
+   resources.
+
+    To run an interactive shell, issue:
+          qsub -I -q queue_name
+
+    To submit a batch job, issue:       qsub job_script.sh
+    To show all queued jobs, issue:     showq or qstat
+    To check a job status:              checkjob &lt;jobId&gt;
+    To kill a queued job, issue:        canceljob &lt;jobId&gt;
+
+    Example PBS job scripts are located at:
+    http://wiki.hpc.wvu.edu/hpc_wiki/index.php/Sample_Job_Scripts
+
+    The following man pages provide helpful pbs information:
+        man pbs_resources_linux (How-to request cluster resources)
+        man qsub
+        man qstat
+
+- Spruce Knob utilizes Environment Modules to help manage different software
+   packages available on the cluster.  &quot;module avail&quot; shows the available
+   modules.
+
+- Spruce has two file systems available to users:
+   - $HOME (permanent storage that is backed up via snapshots, 10GB Limit)
+   - $SCRATCH (temporary storage that is NOT backed up, current allocation 130 
+     TB)
+
+- Please acknowledge use of this Super Computing System (Spruce Knob) at WVU,
+   which are funded in part by the National Science Foundation EPSCoR
+   Research Infrastructure Improvement Cooperative Agreement #1003907, the
+   state of West Virginia (WVEPSCoR via the Higher Education Policy Commission)
+   and WVU, in your publications produced using these resources.
+_
+______________________________________________________________________________
+
+Recent Updates:
+
+
+
+
+----------------------------------User 
+Quotas-----------------------------------
+File Set      Usage (MB)    Limit (MB)    % Used    File Usage    Limit
+----------  ------------  ------------  --------  ------------  -------
+home                4624         10240        45          8691        0
+scratch          4048755      62914560         6           826        0
+group             880349      29360128         2           395        0
+--------------------------------------------------------------------------------
+
+
+[training01@srih0001 ~]$</code></pre>
+<p>If username matches to whoami output, can omit username with ssh command</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">whoami</span></code></pre></div>
+<pre class="output"><code>training01</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> spruce.hpc.wvu.edu</code></pre></div>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+      		We were aided in this work by the training and other support offered by 
+      		the <a href="http://software-carpentry.org">Software Carpentry</a> 
+      		project.
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script 
+    src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  </body>
+</html>
