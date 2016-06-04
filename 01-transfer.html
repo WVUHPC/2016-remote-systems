@@ -39,16 +39,41 @@
 </ul>
 </div>
 </section>
-<ul>
-<li>sftp shell</li>
-<li>list directory [remote], list directory [local]</li>
-<li>change directory [remote], change directory [local]</li>
-<li>put/get file</li>
-<li><p>put/get directory</p></li>
-<li>scp</li>
-<li>copy a single file [push/pull]</li>
-<li><p>copy a recursive directory [push/pull]</p></li>
-</ul>
+<p>Connect using sftp</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sftp</span> spruce.hpc.wvu.edu</code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="hostname-difference"><span class="glyphicon glyphicon-pushpin"></span>Hostname difference</h2>
+</div>
+<div class="panel-body">
+<p>In this example we use <code>spruce.hpc.wvu.edu</code> as the hostname. However, you can use any hostname that you have login capabilities and …. <sub>~</sub></p>
+</div>
+</aside>
+<p>list remote directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> ls</code></pre></div>
+<p>list local directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> lls</code></pre></div>
+<p>change remote directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> cd</code></pre></div>
+<p>change local directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> lcd</code></pre></div>
+<p>download file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> get</code></pre></div>
+<p>put file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> put</code></pre></div>
+<p>Use the -R flag for directories</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> put -R</code></pre></div>
+<p>sftp has a list of other commands mirror filesystem commands</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> help</code></pre></div>
+<p>exit sftp</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> exit</code></pre></div>
+<h2 id="simplifying-transfers-with-scp">Simplifying transfers with SCP</h2>
+<p>transfer a single file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> localfile spruce.hpc.wvu.edu:remotefile</code></pre></div>
+<p>retrieve a file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> spruce.hpc.wvu.edu:remotefile localfile</code></pre></div>
+<p>Use the -R flag for directories</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> -r spruce.hpc.wvu.edu:remotedir localdir</code></pre></div>
         </div>
       </div>
       </article>
