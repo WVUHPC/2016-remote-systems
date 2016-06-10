@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
 	<title>Remote Systems</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
@@ -35,7 +34,6 @@
 <div class="panel-body">
 <ul>
 <li>Learn to transfer files from/to remote systems using <code>scp</code></li>
-<li>Learn to use Globus transfer</li>
 </ul>
 </div>
 </section>
@@ -94,6 +92,42 @@ special.txt</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> mountaineer.hpc.wvu.edu:special.txt download.txt
 $ <span class="kw">ls</span></code></pre></div>
 <pre class="output"><code>download.txt</code></pre>
+<p>======= &gt; * Retrieve/put files from/to remote systems using <code>sftp</code> &gt; * Retrieve/put files from/to remote systems using <code>scp</code></p>
+<p>Connect using sftp</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sftp</span> spruce.hpc.wvu.edu</code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="hostname-difference"><span class="glyphicon glyphicon-pushpin"></span>Hostname difference</h2>
+</div>
+<div class="panel-body">
+<p>In this example we use <code>spruce.hpc.wvu.edu</code> as the hostname. However, you can use any hostname that you have login capabilities and …. <sub>~</sub></p>
+</div>
+</aside>
+<p>list remote directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> ls</code></pre></div>
+<p>list local directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> lls</code></pre></div>
+<p>change remote directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> cd</code></pre></div>
+<p>change local directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> lcd</code></pre></div>
+<p>download file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> get</code></pre></div>
+<p>put file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> put</code></pre></div>
+<p>Use the -R flag for directories</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> put -R</code></pre></div>
+<p>sftp has a list of other commands mirror filesystem commands</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> help</code></pre></div>
+<p>exit sftp</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sftp&gt;</span> exit</code></pre></div>
+<h2 id="simplifying-transfers-with-scp">Simplifying transfers with SCP</h2>
+<p>transfer a single file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> localfile spruce.hpc.wvu.edu:remotefile</code></pre></div>
+<p>retrieve a file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> spruce.hpc.wvu.edu:remotefile localfile</code></pre></div>
+<p>Use the -R flag for directories</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> -r spruce.hpc.wvu.edu:remotedir localdir</code></pre></div>
         </div>
       </div>
       </article>
