@@ -34,21 +34,66 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Retrieve/put files from/to remote systems using <code>sftp</code></li>
-<li>Retrieve/put files from/to remote systems using <code>scp</code></li>
+<li>Learn to transfer files from/to remote systems using <code>scp</code></li>
+<li>Learn to use Globus transfer</li>
 </ul>
 </div>
 </section>
-<ul>
-<li>sftp shell</li>
-<li>list directory [remote], list directory [local]</li>
-<li>change directory [remote], change directory [local]</li>
-<li>put/get file</li>
-<li><p>put/get directory</p></li>
-<li>scp</li>
-<li>copy a single file [push/pull]</li>
-<li><p>copy a recursive directory [push/pull]</p></li>
-</ul>
+<p><a href="http://swcarpentry.github.io/shell-novice/shell-novice-data.zip">Data Download</a></p>
+<p>Transfer a single file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> notes.text spruce.hpc.wvu.edu:transfered.txt</code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="hostname-differences"><span class="glyphicon glyphicon-pushpin"></span>Hostname differences</h2>
+</div>
+<div class="panel-body">
+<p>We use spruce.hpc.wvu.edu, but any hostname you have login access to will work.</p>
+</div>
+</aside>
+<pre class="output"><code>notes.txt                       100%   86     0.1KB/s   00:00</code></pre>
+<p>Transfer a directory</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> -r molecules spruce.hpc.wvu.edu:.</code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="filename-designation"><span class="glyphicon glyphicon-pushpin"></span>‘.’ filename designation</h2>
+</div>
+<div class="panel-body">
+<p>Recall that ‘.’ on the command-line is a shortcut for the current directory when used in place of a file. This will create a file with the same name on the remote system in the default directory ($HOME).</p>
+</div>
+</aside>
+<pre class="output"><code>cubane.pdb                           100% 1158     1.1KB/s   00:00    
+ethane.pdb                           100%  622     0.6KB/s   00:00    
+methane.pdb                          100%  422     0.4KB/s   00:00    
+octane.pdb                           100% 1828     1.8KB/s   00:00    
+pentane.pdb                          100% 1226     1.2KB/s   00:00    
+propane.pdb                          100%  825     0.8KB/s   00:00</code></pre>
+<p>A better way might be to copy the entire zip file</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> shell-novice.zip spruce.hpc.wvu.edu:</code></pre></div>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="no-filename-designation-after-the-hostname"><span class="glyphicon glyphicon-pushpin"></span>No filename designation after the hostname</h2>
+</div>
+<div class="panel-body">
+<p>If you do not specify a filename after the hostname, scp will put the file(s) with the same name on the local system in the default remote system location ($HOME). Hostname must end with ‘:’ character.</p>
+</div>
+</aside>
+<p>We can check that the files are on the remote system</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ssh</span> spruce.hpc.wvu.edu ls</code></pre></div>
+<pre class="output"><code>molecules
+shell-novice-data.zip
+special.txt</code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="command-at-the-end-of-ssh"><span class="glyphicon glyphicon-pushpin"></span>Command at the end of ssh</h2>
+</div>
+<div class="panel-body">
+<p>Placing a command at the end of an <code>ssh</code> command will make ssh execute that command on the remote system, deliver the output, and then return back to the local system.</p>
+</div>
+</aside>
+<p>Reverse the order of hostname and filename to download the file from the remote system.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">scp</span> mountaineer.hpc.wvu.edu:special.txt download.txt
+$ <span class="kw">ls</span></code></pre></div>
+<pre class="output"><code>download.txt</code></pre>
         </div>
       </div>
       </article>
