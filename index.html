@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
 	<title>Working with Remote Systems</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
@@ -27,14 +26,29 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
                     <h1 class="title">Working with Remote Systems</h1>
-          <p>The Unix Shell is a great tool; but it is limited by the current resources contained on the physical machine it resides on. One revolutionary invention was sharing many computers to broaden tools that are available to you. A great example of this is the Internet. A computer that you don’t have physical access to, may have services and tools of great importance to your work. The only way to get access to these services is by connecting remotely. These two lessons will teach you how to connect to remote systems and transfer files to and from remote systems - all from the command-line.</p>
+          <p>The source of power for the Unix shell comes from the available commands on the system you are working on. Most systems which run Linux/Unix have very similar toolset (i.e. <code>grep</code>, <code>find</code>, <code>sort</code>). However, there are specialized systems that are built to provide users with tremendous power. Examples of these specialized systems include High Performance systems (HPC), visualization servers, and cloud computing. All of these services have a connecting bottleneck, in that you need to remotely connect to them through network tools.</p>
+<p>The two lessons here are short and sweet. They show the most common methods used to connect to remote systems, and transfer/retrieve files remotely.</p>
 <section class="prereq panel panel-warning">
 <div class="panel-heading">
 <h2 id="prerequisites"><span class="glyphicon glyphicon-education"></span>Prerequisites</h2>
 </div>
 <div class="panel-body">
-<p>This lesson assumes basic experience with the Unix shell. If you have ever ran programs on a Unix/Linux system and created, copied, moved files/directories from within the Unix shell. Then you are ready for this lesson.</p>
-<p>If you have previously used ssh, scp, and sftp before, you probably won’t learn much from this lesson.</p>
+<p>This lesson assumes basic understanding of the Unix shell and file systems.<br />
+You should be comfortable with moving around a file system using the shell and running command-line programs. Additionally, we assume that particpants are using a command-line terminal, which can include MobaXterm or Cygwin (Windows), or the associated Terminal emulator (Mac OS X or Unix/Linux). If you believe you need additional training on these topics you should check out the <a href="https://swcarpentry.github.io/shell-novice">shell novice</a> lesson first.</p>
+<p>If you are already comfortable with connecting to remote systems using ssh, and/or transfering/retrieving files using scp/sftp, you probably won’t learn much from this lesson.</p>
+</div>
+</section>
+<section class="getready panel panel-warning">
+<div class="panel-heading">
+<h2 id="getting-ready"><span class="glyphicon glyphicon-check"></span>Getting ready</h2>
+</div>
+<div class="panel-body">
+<p>Some of the examples in this lesson use specific files in their commands.<br />
+While any file or directory can be substituted for these files, if you would like to execute the commands exactly you need to download the files we use for this lesson.</p>
+<ol style="list-style-type: decimal">
+<li>Download <a href="shell-novice-data.zip" class="uri">shell-novice-data.zip</a>.</li>
+<li>Unzip/extract the file. You should end up with a folder called data-shell.</li>
+</ol>
 </div>
 </section>
 <h2 id="topics">Topics</h2>

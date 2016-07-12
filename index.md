@@ -3,24 +3,44 @@ layout: page
 title: Working with Remote Systems
 ---
 
-The Unix Shell is a great tool; but it is limited by the current resources 
-contained on the physical machine it resides on.  One revolutionary invention 
-was sharing many computers to broaden tools that are available to you.  A great 
-example of this is the Internet. A computer that you don't have physical access 
-to, may have services and tools of great importance to your work.  The only way 
-to get access to these services is by connecting remotely.  These two lessons 
-will teach you how to connect to remote systems and transfer files to and from 
-remote systems - all from the command-line.
+
+The source of power for the Unix shell comes from the available commands on the 
+system you are working on.  Most systems which run Linux/Unix have very similar 
+toolset (i.e. `grep`, `find`, `sort`).  However, there are specialized systems 
+that are built to provide users with tremendous power.  Examples of these 
+specialized systems include High Performance systems (HPC), visualization 
+servers, and cloud computing.  All of these services have a connecting 
+bottleneck, in that you need to remotely connect to them through network tools.  
+
+
+The two lessons here are short and sweet.  They show the most common methods 
+used to connect to remote systems, and transfer/retrieve files remotely.
 
 > ## Prerequisites {.prereq}
 >
-> This lesson assumes basic experience with the Unix shell.  If you have ever 
-> ran programs on a Unix/Linux system and created, copied, moved 
-> files/directories from within the Unix shell.  Then you are ready for this 
-> lesson.
+> This lesson assumes basic understanding of the Unix shell and file systems.  
+> You should be comfortable with moving around a file system using the shell 
+> and running command-line programs.  Additionally, we assume that particpants 
+> are using a command-line terminal, which can include MobaXterm or Cygwin 
+> (Windows), or the associated Terminal emulator (Mac OS X or Unix/Linux).  If 
+> you believe you need additional training on these topics you should check out 
+> the [shell novice](https://swcarpentry.github.io/shell-novice) lesson first.
 >
-> If you have previously used ssh, scp, and sftp before, you probably won't 
-> learn much from this lesson.
+> If you are already comfortable with connecting to remote systems using ssh, 
+> and/or transfering/retrieving files using scp/sftp, you probably won't learn 
+> much from this lesson.
+
+> ## Getting ready {.getready}
+>
+> Some of the examples in this lesson use specific files in their commands.  
+> While any file or directory can be substituted for these files, if you would 
+> like to execute the commands exactly you need to download the files we use 
+> for this lesson.
+>
+> 1. Download [shell-novice-data.zip](shell-novice-data.zip).
+> 2. Unzip/extract the file.  You should end up with a folder called 
+>    data-shell.
+
 
 ## Topics
 
